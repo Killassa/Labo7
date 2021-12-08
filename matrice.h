@@ -66,29 +66,40 @@ int minCol(const Matrice& matrice);
 vector<int> sommeLigne(const Matrice& matrice);
 
 /**
+ * Retourne un vecteur contenant la somme des valeurs de chacune des colonnes
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice sur laquelle on effectue la somme des valeurs des colonnes
+ * @return          Vecteur contenant la somme des valeurs des colonnes
  */
 vector<int> sommeColonne(const Matrice& matrice);
 
 /**
+ * Retour le vecteur d’une matrice dont la somme des valeurs est la plus faible
+ * Si plusieurs vecteurs présentent la même somme, la fonction retourne celui
+ * d’indice le plus faible
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice pour la recherche du vecteur
+ * @return          Vecteur comprenant la somme des valeurs la plus faible
  */
 vector<int> vectSommeMin(const Matrice& matrice);
 
 /**
+ * Mélanger les vecteurs d’une matrice sans altérer les vecteurs, La seed du
+ * générateur est basée sur l’heure
  *
- * @param matrice
+ * Remarque : Inspiré du fonctionnement suivant :
+ *            http://www.cplusplus.com/reference/algorithm/shuffle/?kw=shuffle
+ *
+ * @param matrice   La matrice à mélanger
  */
-void shuffleMatrice(const Matrice& matrice);
+void shuffleMatrice(Matrice& matrice);
 
 /**
+ * Effectue un tri dans l’ordre croissant une matrice en fonction de l’élément min
+ * d’un vecteur
  *
- * @param matrice
+ * @param matrice   La matrice à trier
  */
-void sortMatrice(const Matrice& matrice);
+void sortMatrice(Matrice& matrice);
 
 #endif //LABO7_MATRICE_H
