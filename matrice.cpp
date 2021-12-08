@@ -18,38 +18,38 @@ ostream& operator << (ostream& os, const vector<int>& vecteur) {
 
 }
 
-ostream& operator << (ostream& os, const vector<vector<int>>& matrice) {
+ostream& operator << (ostream& os, const Matrice& matrice) {
 
 }
 
-bool estCarre(const vector<vector<int>>& matrice) {
+bool estCarre(const Matrice& matrice) {
 
 }
 
-bool estReguliere(const vector<vector<int>>& matrice) {
+bool estReguliere(const Matrice& matrice) {
 
 }
 
-int minCol(const vector<vector<int>>& matrice) {
+int minCol(const Matrice& matrice) {
 
 }
 
-vector<int> sommeLigne(const vector<vector<int>>& matrice) {
+vector<int> sommeLigne(const Matrice& matrice) {
 
 }
 
-vector<int> sommeColonne(const vector<vector<int>>& matrice) {
+vector<int> sommeColonne(const Matrice& matrice) {
 
 }
 
-vector<int> vectSommeMin(const vector<vector<int>>& matrice) {
+vector<int> vectSommeMin(const Matrice& matrice) {
 
 }
 
-void shuffleMatrice(const vector<vector<int>>& matrice) {
+void shuffleMatrice(const Matrice& matrice) {
 
 }
 
-void sortMatrice(const vector<vector<int>>& matrice) {
+void sortMatrice(const Matrice& matrice) {
 
 }

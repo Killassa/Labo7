@@ -18,13 +18,16 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 
 using namespace std;
 
+using Vecteur1D = vector<int>;
+using Matrice = vector<Vecteur1D>;
+
 /**
  *
  * @param os
  * @param vecteur
  * @return
  */
-ostream& operator << (ostream& os, const vector<int>& vecteur);
+ostream& operator << (ostream& os, const Vecteur1D& vecteur);
 
 /**
  *
@@ -32,60 +35,60 @@ ostream& operator << (ostream& os, const vector<int>& vecteur);
  * @param matrice
  * @return
  */
-ostream& operator << (ostream& os, const vector<vector<int>>& matrice);
+ostream& operator << (ostream& os, const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-bool estCarre(const vector<vector<int>>& matrice);
+bool estCarre(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-bool estReguliere(const vector<vector<int>>& matrice);
+bool estReguliere(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-int minCol(const vector<vector<int>>& matrice);
+int minCol(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-vector<int> sommeLigne(const vector<vector<int>>& matrice);
+vector<int> sommeLigne(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-vector<int> sommeColonne(const vector<vector<int>>& matrice);
+vector<int> sommeColonne(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  * @return
  */
-vector<int> vectSommeMin(const vector<vector<int>>& matrice);
+vector<int> vectSommeMin(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  */
-void shuffleMatrice(const vector<vector<int>>& matrice);
+void shuffleMatrice(const Matrice& matrice);
 
 /**
  *
  * @param matrice
  */
-void sortMatrice(const vector<vector<int>>& matrice);
+void sortMatrice(const Matrice& matrice);
 
 #endif //LABO7_MATRICE_H
