@@ -11,18 +11,33 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 */
 
 #include <algorithm>
-
+#include <iostream>
 #include "matrice.h"
 
-ostream& operator << (ostream& os, const vector<int>& vecteur) {
+ostream& operator << (ostream& os, const Vecteur1D& vecteur) {
+      os << "[";
+      for (size_t i=0; i<vecteur.size(); ++i) {
+         if (i)
+            os << ", ";
+         os << vecteur[i];
+      }
+      os << "]";
+      return os;
+   }
 
-}
 
 ostream& operator << (ostream& os, const Matrice& matrice) {
-
+   os << "[";
+   for (size_t i=0; i<matrice.size(); ++i) {
+      if (i)
+         os << ", ";
+      os << matrice[i];
+   }
+   os << "]";
+   return os;
 }
 
-bool estCarre(const Matrice& matrice) {
+bool estCarre(const vector<vector<int>>& matrice) {
 
 }
 
