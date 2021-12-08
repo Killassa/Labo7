@@ -22,26 +22,45 @@ int main() {
    //Message de fin pour quitter le programme
    const string MSG_QUITTER = "Presser ENTER pour quitter";
 
+   //Utilisation d'un vecteur de matrice pour tester différents cas possibles
+   vector<Matrice> vecteurTest;
+   vecteurTest.push_back( {});
+   vecteurTest.push_back({{},
+                          {},
+                          {}
+   });
+   vecteurTest.push_back({{},
+                          {2, 4},
+                          {1,-5, 1, 3, 9},
+                          {3, 8, 4}
+   });
+   vecteurTest.push_back({{1, 2, 3},
+                          {4, 5, 6},
+                          {3,-2, 1},
+                          {6, 5, 4}
+   });
+   vecteurTest.push_back({{7, 8, 9},
+                          {4, 5, 6},
+                          {1, 2, 3},
+   });
 
-   /* -------------------------------------------------------------------------------
-    *  Test temporaire
-    * -----------------------------------------------------------------------------*/
-   Matrice mat(1);
-   mat[0] = {3, 2, 3, 4, 5, 6};
-   mat[1] = {5, 7, 3, 4};
-   mat[2] = {1, 2, 3, 4};
-   mat[3] = {};
-
-   cout << sommeColonne(mat) << endl;
-   cout << vectSommeMin(mat) << endl;
-
-   cout << mat << endl;
-   shuffleMatrice(mat);
-   cout << mat << endl;
-   sortMatrice(mat);
-   cout << mat << endl;
-
-
+   cout << boolalpha;
+   for (Matrice mat : vecteurTest) {
+      cout << "============================================================" << endl;
+      cout << "Matrice                        : " << mat                     << endl;
+      //cout << "Carree                         : " << estCarre(mat)           << endl;
+      //cout << "Reguliere                      : " << estReguliere(mat)       << endl;
+      //cout << "Longueur du plus petit vecteur : " << minCol(mat)             << endl;
+      //cout << "Sommes des lignes              : " << sommeLigne(mat)         << endl;
+      cout << "Sommes des colonnes            : " << sommeColonne(mat)       << endl;
+      cout << "Plus petite somme              : " << vectSommeMin(mat)       << endl;
+      shuffleMatrice(mat);
+      cout << "Melange matrice                : " << mat                     << endl;
+      sortMatrice(mat);
+      cout << "Tri matrice                    : " << mat                     << endl;
+      cout << "============================================================" << endl;
+      cout << endl << endl;
+   }
 
    /* -------------------------------------------------------------------------------
     *  Message de fin
