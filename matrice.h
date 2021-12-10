@@ -65,7 +65,7 @@ bool estReguliere(const Matrice& matrice);
  *                  plus petit
  * @return          Taille du plus petit vecteur
  */
-size_t minCol(const Matrice& matrice);
+Vecteur1D::size_type minCol(const Matrice& matrice);
 
 /**
  * Retourne un vecteur contenant la somme des éléments de chaque vecteur de la

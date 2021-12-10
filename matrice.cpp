@@ -44,7 +44,7 @@ bool plusGrandeTaille(const Vecteur1D& v1, const Vecteur1D& v2);
  * @param matrice   Matrice pour la recherche de la ligne la plus longue
  * @return          Nombre total de colonne de la ligne la plus longue
  */
-int maxCol(const Matrice& matrice);
+Vecteur1D::size_type maxCol(const Matrice& matrice);
 
 /**
  * Effectue la somme de 2 vecteurs
@@ -135,8 +135,8 @@ bool estReguliere(const Matrice& matrice) {
    return true;
 }
 
-size_t minCol(const Matrice& matrice) {
-   size_t longueurMinimum = 0;
+Vecteur1D::size_type minCol(const Matrice& matrice) {
+   Vecteur1D::size_type longueurMinimum = 0;
    if(!matrice.empty()){
       longueurMinimum = (*min_element(matrice.begin(),matrice.end(),
                                     plusGrandeTaille)).size();
@@ -165,7 +165,7 @@ Vecteur1D vectSommeMin(const Matrice& matrice) {
 
 void shuffleMatrice(Matrice& matrice) {
    //Obtenir une seed basée sur l'horloge système
-   unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+   unsigned seed = (unsigned)std::chrono::system_clock::now().time_since_epoch().count();
 
    shuffle(matrice.begin(), matrice.end(), std::default_random_engine(seed));
 }
@@ -190,24 +190,33 @@ bool estDeMemeTaille(const Vecteur1D& v1, const Vecteur1D& v2) {
    return v1.size() == v2.size();
 }
 
-int maxCol(const Matrice& matrice) {
+Vecteur1D::size_type maxCol(const Matrice& matrice) {
    if (matrice.empty())
       return 0;
 
-   return (int)(*max_element(matrice.begin(), matrice.end(), plusGrandeTaille)).size();
+   return (*max_element(matrice.begin(), matrice.end(), plusGrandeTaille)).size();
 }
 
 Vecteur1D sommeVecteur(const Vecteur1D& v1, const Vecteur1D& v2) {
-   int tailleMin = (int)min(v1.size(), v2.size());
-   int tailleMax = (int)max(v1.size(), v2.size());
+   Vecteur1D::size_type tailleMin = min(v1.size(), v2.size());
+   Vecteur1D::size_type tailleMax = max(v1.size(), v2.size());
 
    //Ajout du dernier éléments si l'un des tableaux est plus grand que l'autre, sinon
    //ne fait rien
    Vecteur1D somme(tailleMax);
-   copy(v1.begin() + tailleMin, v1.end(), somme.begin() + tailleMin);
-   copy(v2.begin() + tailleMin, v2.end(), somme.begin() + tailleMin);
 
-   transform(v1.begin(), v1.begin() + tailleMin, v2.begin(), somme.begin(), addition);
+   copy(v1.begin() + (Vecteur1D::difference_type)tailleMin,
+        v1.end(),
+        somme.begin() + (Vecteur1D::difference_type)tailleMin);
+   copy(v2.begin() + (Vecteur1D::difference_type)tailleMin,
+        v2.end(),
+        somme.begin() + (Vecteur1D::difference_type)tailleMin);
+
+   transform(v1.begin(),
+             v1.begin() + (Vecteur1D::difference_type)tailleMin,
+             v2.begin(),
+             somme.begin(),
+             addition);
 
    return somme;
 }
