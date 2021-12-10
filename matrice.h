@@ -5,7 +5,8 @@ Nom du labo    : Labo 7 - Matrice
 Auteur(s)      : Grégory Rey-Mermet, Paul Gillet
 Date creation  : 08.12.2021
 Description    : Ce fichier d'en-tête (.h) met à la disposition de l'utilisateur
-                 diverses fonctions utiles ...
+                 diverses fonctions utiles permettant une manipulation facilitées de
+                 vecteurs et de matrices d'entier
 Remarque(s)    : -
 Compilateur    : Mingw-w64 g++ 11.2.0
 -------------------------------------------------------------------------------------
@@ -14,12 +15,11 @@ Compilateur    : Mingw-w64 g++ 11.2.0
 #ifndef LABO7_MATRICE_H
 #define LABO7_MATRICE_H
 
+#include <iostream>  //cout
 #include <vector>
 
-using namespace std;
-
-using Vecteur1D = vector<int>;
-using Matrice = vector<Vecteur1D>;
+using Vecteur1D = std::vector<int>;
+using Matrice = std::vector<Vecteur1D>;
 
 /**
  *
@@ -27,7 +27,7 @@ using Matrice = vector<Vecteur1D>;
  * @param vecteur
  * @return
  */
-ostream& operator << (ostream& os, const Vecteur1D& vecteur);
+std::ostream& operator << (std::ostream& os, const Vecteur1D& vecteur);
 
 /**
  *
@@ -35,7 +35,7 @@ ostream& operator << (ostream& os, const Vecteur1D& vecteur);
  * @param matrice
  * @return
  */
-ostream& operator << (ostream& os, const Matrice& matrice);
+std::ostream& operator << (std::ostream& os, const Matrice& matrice);
 
 /**
  *
@@ -63,7 +63,7 @@ int minCol(const Matrice& matrice);
  * @param matrice
  * @return
  */
-vector<int> sommeLigne(const Matrice& matrice);
+Vecteur1D sommeLigne(const Matrice& matrice);
 
 /**
  * Retourne un vecteur contenant la somme des valeurs de chacune des colonnes
@@ -71,7 +71,7 @@ vector<int> sommeLigne(const Matrice& matrice);
  * @param matrice   Matrice sur laquelle on effectue la somme des valeurs des colonnes
  * @return          Vecteur contenant la somme des valeurs des colonnes
  */
-vector<int> sommeColonne(const Matrice& matrice);
+Vecteur1D sommeColonne(const Matrice& matrice);
 
 /**
  * Retour le vecteur d’une matrice dont la somme des valeurs est la plus faible
@@ -81,7 +81,7 @@ vector<int> sommeColonne(const Matrice& matrice);
  * @param matrice   Matrice pour la recherche du vecteur
  * @return          Vecteur comprenant la somme des valeurs la plus faible
  */
-vector<int> vectSommeMin(const Matrice& matrice);
+Vecteur1D vectSommeMin(const Matrice& matrice);
 
 /**
  * Mélanger les vecteurs d’une matrice sans altérer les vecteurs, La seed du

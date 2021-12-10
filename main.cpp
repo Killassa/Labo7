@@ -4,8 +4,9 @@ Nom du fichier : main.cpp
 Nom du labo    : Labo 7 - Matrice
 Auteur(s)      : Grégory Rey-Mermet, Paul Gillet
 Date creation  : 08.12.2021
-Description    :
-Remarque(s)    :
+Description    : Ce programme démontre le bon fonctionnement de la librairie matrice
+                 en fonction de différents cas particuliers de matrices possibles
+Remarque(s)    : -
 Compilateur    : Mingw-w64 g++ 11.2.0
 -----------------------------------------------------------------------------------
 */
