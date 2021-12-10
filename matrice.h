@@ -22,18 +22,20 @@ using Vecteur1D = std::vector<int>;
 using Matrice = std::vector<Vecteur1D>;
 
 /**
+ * Surcharge de l'opérateur de flux d'écriture pour afficher un vecteur
  *
- * @param os
- * @param vecteur
- * @return
+ * @param os        Flux
+ * @param vecteur   Vecteur dont l'affichage sera formaté
+ * @return          Le flux d'origine avec affichage formaté
  */
 std::ostream& operator << (std::ostream& os, const Vecteur1D& vecteur);
 
 /**
+ * Surcharge de l'opérateur de flux d'écriture pour afficher un matrice
  *
- * @param os
- * @param matrice
- * @return
+ * @param os        Flux
+ * @param matrice   Matrice dont l'affichage sera formaté
+ * @return          Le flux d'origine avec affichage formaté
  */
 std::ostream& operator << (std::ostream& os, const Matrice& matrice);
 
@@ -42,7 +44,7 @@ std::ostream& operator << (std::ostream& os, const Matrice& matrice);
  * au nombre de colonne)
  *
  * @param matrice   Matrice
- * @return  True : la matrice est carrée / False : la matrice n'est pas carrée
+ * @return          True : la matrice est carrée / False : la matrice n'est pas carrée
  */
 bool estCarre(const Matrice& matrice);
 
@@ -51,12 +53,13 @@ bool estCarre(const Matrice& matrice);
  * taille)
  *
  * @param matrice   Matrice
- * @return  True : la matrice est régulière / False : la matrice n'est pas régulière
+ * @return          True :  La matrice est régulière / False : la matrice n'est pas
+ *                  régulière
  */
 bool estReguliere(const Matrice& matrice);
 
 /**
- *  Retourne la taille du plus petit vecteur de la matrice
+ * Retourne la taille du plus petit vecteur de la matrice
  *
  * @param matrice   Matrice dans laquelle on va chercher la taille du vecteur le
  *                  plus petit

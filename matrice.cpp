@@ -79,6 +79,7 @@ bool estPlusPetitVecteur(const Vecteur1D& v1, const Vecteur1D& v2);
 
 /**
  * Indique si le premier vecteur est de même taille que le deuxième
+ *
  * @param v1    Premier vecteur
  * @param v2    Deuxième vecteur
  * @return      True : les deux vecteurs ont la même taille / False : les deux
@@ -88,6 +89,7 @@ bool estDeMemeTaille(const Vecteur1D& v1, const Vecteur1D& v2);
 
 /**
  * Retourne la somme des éléments de chaque vecteur de la matrice
+ *
  * @param vecteur   Vecteur qui va être sommé
  * @return          Entier qui vaut la somme de tous les éléments du vecteur
  */
@@ -117,8 +119,9 @@ ostream& operator << (ostream& os, const Matrice& matrice) {
 
 bool estCarre(const vector<vector<int>>& matrice) {
    if (!matrice.empty()) {
-      bool carree = min_element(matrice.begin(),matrice.end(),plusGrandeTaille)
-                       ->size() == matrice.size();
+      bool carree = (*min_element(matrice.begin(),matrice.end(),plusGrandeTaille))
+                    .size() == matrice.size();
+
       return carree;
    }
    return true;
@@ -135,8 +138,8 @@ bool estReguliere(const Matrice& matrice) {
 size_t minCol(const Matrice& matrice) {
    size_t longueurMinimum = 0;
    if(!matrice.empty()){
-      longueurMinimum = min_element(matrice.begin(),matrice.end(),
-                                    plusGrandeTaille)->size();
+      longueurMinimum = (*min_element(matrice.begin(),matrice.end(),
+                                    plusGrandeTaille)).size();
    }
    return longueurMinimum;
 }
@@ -191,7 +194,7 @@ int maxCol(const Matrice& matrice) {
    if (matrice.empty())
       return 0;
 
-   return (int)max_element(matrice.begin(), matrice.end(), plusGrandeTaille)->size();
+   return (int)(*max_element(matrice.begin(), matrice.end(), plusGrandeTaille)).size();
 }
 
 Vecteur1D sommeVecteur(const Vecteur1D& v1, const Vecteur1D& v2) {
