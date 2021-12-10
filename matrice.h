@@ -38,30 +38,38 @@ std::ostream& operator << (std::ostream& os, const Vecteur1D& vecteur);
 std::ostream& operator << (std::ostream& os, const Matrice& matrice);
 
 /**
+ * Retourne si une matrice est carrée (est carrée si le nombre de ligne est égal
+ * au nombre de colonne)
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice
+ * @return  True : la matrice est carrée / False : la matrice n'est pas carrée
  */
 bool estCarre(const Matrice& matrice);
 
 /**
+ * Retourne si une matrice est régulière (est régulière si chaque ligne à la même
+ * taille)
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice
+ * @return  True : la matrice est régulière / False : la matrice n'est pas régulière
  */
 bool estReguliere(const Matrice& matrice);
 
 /**
+ *  Retourne la taille du plus petit vecteur de la matrice
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice dans laquelle on va chercher la taille du vecteur le
+ *                  plus petit
+ * @return          Taille du plus petit vecteur
  */
-int minCol(const Matrice& matrice);
+size_t minCol(const Matrice& matrice);
 
 /**
+ * Retourne un vecteur contenant la somme des éléments de chaque vecteur de la
+ * matrice (ligne)
  *
- * @param matrice
- * @return
+ * @param matrice   Matrice sur laquelle on effectue la somme
+ * @return          Vecteur contenant la somme des éléments des lignes
  */
 Vecteur1D sommeLigne(const Matrice& matrice);
 

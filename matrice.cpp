@@ -77,6 +77,22 @@ bool sommeEstPlusPetite(const Vecteur1D& v1, const Vecteur1D& v2);
  */
 bool estPlusPetitVecteur(const Vecteur1D& v1, const Vecteur1D& v2);
 
+/**
+ * Indique si le premier vecteur est de même taille que le deuxième
+ * @param v1    Premier vecteur
+ * @param v2    Deuxième vecteur
+ * @return      True : les deux vecteurs ont la même taille / False : les deux
+ *                     vecteurs ont une taille différentes
+ */
+bool estDeMemeTaille(const Vecteur1D& v1, const Vecteur1D& v2);
+
+/**
+ * Retourne la somme des éléments de chaque vecteur de la matrice
+ * @param vecteur   Vecteur qui va être sommé
+ * @return          Entier qui vaut la somme de tous les éléments du vecteur
+ */
+int sommeVecteurLigne(const Vecteur1D& vecteur);
+
 ostream& operator << (ostream& os, const Vecteur1D& vecteur) {
    os << "(";
    for (Vecteur1D::const_iterator it = vecteur.begin(); it < vecteur.end(); ++it) {
@@ -100,19 +116,37 @@ ostream& operator << (ostream& os, const Matrice& matrice) {
 }
 
 bool estCarre(const vector<vector<int>>& matrice) {
-
+   if (!matrice.empty()) {
+      bool carree = min_element(matrice.begin(),matrice.end(),plusGrandeTaille)
+                       ->size() == matrice.size();
+      return carree;
+   }
+   return true;
 }
 
 bool estReguliere(const Matrice& matrice) {
-
+   if (!matrice.empty()) {
+      return equal(matrice.begin(),matrice.end()-1,matrice.begin()+1,
+                   estDeMemeTaille);
+   }
+   return true;
 }
 
-int minCol(const Matrice& matrice) {
-
+size_t minCol(const Matrice& matrice) {
+   size_t longueurMinimum = 0;
+   if(!matrice.empty()){
+      longueurMinimum = min_element(matrice.begin(),matrice.end(),
+                                    plusGrandeTaille)->size();
+   }
+   return longueurMinimum;
 }
 
 Vecteur1D sommeLigne(const Matrice& matrice) {
-   return Vecteur1D();
+   Vecteur1D vecteur(matrice.size());
+   if(!matrice.empty()){
+      transform(matrice.begin(),matrice.end(),vecteur.begin(),sommeVecteurLigne);
+   }
+   return vecteur;
 }
 
 Vecteur1D sommeColonne(const Matrice& matrice) {
@@ -140,6 +174,7 @@ void sortMatrice(Matrice& matrice) {
 /* -------------------------------------------------------------------------------
  *  Fonctions utiles
  * -----------------------------------------------------------------------------*/
+
 int addition(int a, int b) {
    return a + b;
 }
@@ -148,13 +183,16 @@ bool plusGrandeTaille(const Vecteur1D& v1, const Vecteur1D& v2) {
    return v1.size() < v2.size();
 }
 
+bool estDeMemeTaille(const Vecteur1D& v1, const Vecteur1D& v2) {
+   return v1.size() == v2.size();
+}
+
 int maxCol(const Matrice& matrice) {
    if (matrice.empty())
       return 0;
 
    return (int)max_element(matrice.begin(), matrice.end(), plusGrandeTaille)->size();
 }
-
 
 Vecteur1D sommeVecteur(const Vecteur1D& v1, const Vecteur1D& v2) {
    int tailleMin = (int)min(v1.size(), v2.size());
@@ -176,6 +214,11 @@ bool sommeEstPlusPetite(const Vecteur1D& v1, const Vecteur1D& v2) {
       return true;
 
    return false;
+}
+
+int sommeVecteurLigne(const Vecteur1D& vecteur) {
+   int sommeLigne = accumulate(vecteur.begin(),vecteur.end(),0);
+   return sommeLigne;
 }
 
 bool estPlusPetitVecteur(const Vecteur1D& v1, const Vecteur1D& v2) {

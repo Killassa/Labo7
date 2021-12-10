@@ -49,10 +49,10 @@ int main() {
    for (Matrice mat : vecteurTest) {
       cout << "============================================================" << endl;
       cout << "Matrice                        : " << mat                     << endl;
-      //cout << "Carree                         : " << estCarre(mat)           << endl;
-      //cout << "Reguliere                      : " << estReguliere(mat)       << endl;
-      //cout << "Longueur du plus petit vecteur : " << minCol(mat)             << endl;
-      //cout << "Sommes des lignes              : " << sommeLigne(mat)         << endl;
+      cout << "Carree                         : " << estCarre(mat)           << endl;
+      cout << "Reguliere                      : " << estReguliere(mat)       << endl;
+      cout << "Longueur du plus petit vecteur : " << minCol(mat)             << endl;
+      cout << "Sommes des lignes              : " << sommeLigne(mat)         << endl;
       cout << "Sommes des colonnes            : " << sommeColonne(mat)       << endl;
       cout << "Plus petite somme              : " << vectSommeMin(mat)       << endl;
       shuffleMatrice(mat);
